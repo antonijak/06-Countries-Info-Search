@@ -12,10 +12,10 @@ font-family: 'Montserrat', sans-serif;
 header {
 margin: auto;
 text-align: center;
-padding: 1rem 4rem;
+padding: 3rem 4rem;
 width: 80%;
 background-color: white;
-
+color: rgb(80, 77, 77);
 }
 
 input {
@@ -24,11 +24,15 @@ display: block;
 
 #search {
 width: 100%;
-border-radius: 5px;
-line-height: 2rem;
+line-height: 3rem;
 text-align: center;
 font-size: 1rem;
 outline: none;
+margin-top: .2rem;
+}
+
+#search:hover{
+  border: 2px solid rgb(208, 201, 201);  
 }
 
 main {
@@ -39,7 +43,7 @@ padding: 1px 4rem;
 }
 
 .country{
-border-radius: 5px;
+border-radius: 2px;
 height: 110px;
 font-family: 'Montserrat', sans-serif;
 font-weight: bold;
@@ -60,11 +64,29 @@ text-align: center;
   height: 3rem;
   width: 9rem;
   display: inline-block;
-  font-size: .9rem;
-  border-radius: 5px;
-  background-color: bisque;
+  font-size: 1rem;
+  border-radius: 2px;
+  background-color: rgb(191, 191, 182);
   border: none;
   outline: none;
+  color: white; 
 }
 
-#starting-word, #any-word
+#starting-word:hover, #any-word:hover{
+  color: rgb(240, 237, 237);
+}
+
+
+
+h1 {
+  font-size: 3rem;
+  color: rgb(80, 77, 77);
+  margin-bottom: 3rem;
+  margin-top: 0;
+}
+
+h2, h3 {
+  color: rgb(169, 169, 158);
+  font-weight: normal;
+}
+
