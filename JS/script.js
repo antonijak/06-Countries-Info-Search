@@ -33,14 +33,14 @@ function createCountryDiv (country){
 function searchByFirst (){
   main.innerHTML = '';
   let userInputUpper = document.querySelector('#search').value.toUpperCase();
-  //returns an array of all countries that match
+  //returns an array of all countries that match and generates country div for each of them
   const resultCountries = countries.filter((val) => {
     let upperCaseVal = val.toUpperCase();
     let match = upperCaseVal.startsWith(userInputUpper);
-    if (match){ return upperCaseVal }
+    if (match){ 
+      createCountryDiv(upperCaseVal)
+      return upperCaseVal }
   }); 
-  //generates country div for each of them
-  resultCountries.forEach( (country) => { createCountryDiv(country);} ) 
   //shows number of matching countries
   document.querySelector('#number').textContent = resultCountries.length;
 }
@@ -49,14 +49,14 @@ function searchByFirst (){
 function searchByAny (){
   main.innerHTML = '';
   let userInputUpper = document.querySelector('#search').value.toUpperCase();
-  //returns an array of all countries that match
+  //returns an array of all countries that match and generates country div for each of them
   const resultCountries = countries.filter((val) => {
     let upperCaseVal = val.toUpperCase();
     let match = upperCaseVal.includes(userInputUpper);
-    if (match){ return upperCaseVal }
+    if (match){ 
+      createCountryDiv(upperCaseVal)
+      return upperCaseVal }
   }); 
-  //generates country div for each of them
-  resultCountries.forEach((country) => { createCountryDiv(country);}) 
   //shows number of matching countries
   document.querySelector('#number').textContent = resultCountries.length;
 }
