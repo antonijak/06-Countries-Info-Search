@@ -1,7 +1,14 @@
 
 let main = document.querySelector('main');
 let total = document.querySelector('#total');
-total.textContent = countries.length;
+total.textContent = ` ${countries.length} `;
+let number = document.querySelector('#number');
+let expression = document.querySelector('#expression');
+let startContain = document.querySelector('#start-contain');
+let verb = document.querySelector('#verb');
+let countrie_s = document.querySelector('#countrie-s');
+let lengthx;
+
 
 //generate random hexadecimal number
 function randomHexaNumberGenerator (){
@@ -29,9 +36,24 @@ function createCountryDiv (country){
   countryName.className = 'country-name';
 }
 
+function grammar (wantedVerb){
+  number.textContent = lengthx;
+  startContain.textContent = wantedVerb;
+  if (lengthx > 1 || lengthx === 0){
+    verb.textContent = 'are'
+    countrie_s.textContent = 'countries'
+  } else {
+    verb.textContent = 'is'
+    countrie_s.textContent = 'country'
+  }
+}
+
 
 function searchByFirst (){
   main.innerHTML = '';
+  total.textContent = '';
+  searchFirstBtn.className = 'isClicked';
+  searchAnyBtn.className = 'buttons';
   let userInputUpper = document.querySelector('#search').value.toUpperCase();
   //returns an array of all countries that match and generates country div for each of them
   const resultCountries = countries.filter((val) => {
@@ -42,12 +64,18 @@ function searchByFirst (){
       return upperCaseVal }
   }); 
   //shows number of matching countries
-  document.querySelector('#number').textContent = resultCountries.length;
+  lengthx = resultCountries.length;
+  expression.textContent = userInputUpper;
+  grammar ('starting with')
+  searchField.removeEventListener('input', searchByAny)
+  searchField.addEventListener('input', searchByFirst)
 }
 
 
 function searchByAny (){
   main.innerHTML = '';
+  searchAnyBtn.className = 'isClicked';
+  searchFirstBtn.className = 'buttons';
   let userInputUpper = document.querySelector('#search').value.toUpperCase();
   //returns an array of all countries that match and generates country div for each of them
   const resultCountries = countries.filter((val) => {
@@ -58,7 +86,11 @@ function searchByAny (){
       return upperCaseVal }
   }); 
   //shows number of matching countries
-  document.querySelector('#number').textContent = resultCountries.length;
+  lengthx = resultCountries.length;
+  expression.textContent = userInputUpper;
+  grammar ('containing')
+  searchField.removeEventListener('input', searchByFirst)
+  searchField.addEventListener('input', searchByAny)
 }
 
 
